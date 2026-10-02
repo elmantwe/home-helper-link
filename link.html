@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'none'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Link your Gemini key</title>
+<link rel="stylesheet" href="link.css">
+</head>
+<body>
+<main>
+  <h1>Link your Gemini API key</h1>
+  <p dir="rtl" lang="ar" class="ar">اربط مفتاح Gemini الخاص بيك</p>
+
+  <section id="form-section" hidden>
+    <p>This skill uses <strong>your own</strong> Gemini API key. Your Gemini usage is billed to your own Google
+       account, under that key's quota and billing settings. There is no shared key.</p>
+    <p dir="rtl" lang="ar" class="ar">المهارة دي بتستخدم مفتاح Gemini بتاعك أنت. الاستخدام بيتحسب على حساب جوجل بتاعك.</p>
+    <ol>
+      <li>Create a key in Google AI Studio. A dedicated key, restricted to the Gemini API, is recommended.</li>
+      <li>Paste it below and press <strong>Link</strong>.</li>
+    </ol>
+    <form id="key-form" autocomplete="off">
+      <label for="api-key">Gemini API key</label>
+      <input id="api-key" name="api-key" type="password" autocomplete="off" autocapitalize="off"
+             spellcheck="false" required minlength="20" maxlength="200">
+      <p id="key-error" class="error" hidden>That doesn't look like a Gemini API key. Please paste the whole key.</p>
+      <button type="submit">Link</button>
+    </form>
+    <p class="small">The key goes directly from this page to Amazon's account-linking address. This page's server
+       never receives it. Amazon stores it as your account-linking token and sends it only with your own requests to
+       the skill, which uses it to call Gemini for you. To change it, say "change my Gemini key". To remove it,
+       disable the skill in the Alexa app.</p>
+  </section>
+
+  <section id="error-section" hidden>
+    <p class="error">This page can only be opened from the Alexa app's <strong>Link Account</strong> button.</p>
+    <p class="small">Reason: <code id="error-code"></code></p>
+  </section>
+</main>
+<script src="link-config.js"></script>
+<script src="link.js"></script>
+</body>
+</html>
